@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>disable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Mapster" Version="7.3.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.2" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AssetManager.Application\AssetManager.Application.csproj" />
+      <ProjectReference Include="..\AssetManager.Identity\AssetManager.Identity.csproj" />
+      <ProjectReference Include="..\AssetManager.Infrastructure\AssetManager.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>
