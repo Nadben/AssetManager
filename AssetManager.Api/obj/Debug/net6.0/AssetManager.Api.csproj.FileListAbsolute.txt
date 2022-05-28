@@ -107,3 +107,5 @@ C:\Users\nadbe\source\repos\AssetManager\AssetManager.Api\bin\Debug\net6.0\Micro
 C:\Users\nadbe\source\repos\AssetManager\AssetManager.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\nadbe\source\repos\AssetManager\AssetManager.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\nadbe\source\repos\AssetManager\AssetManager.Api\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\nadbe\source\repos\AssetManager\AssetManager.Api\bin\Debug\net6.0\Mapster.dll
+C:\Users\nadbe\source\repos\AssetManager\AssetManager.Api\bin\Debug\net6.0\Mapster.Core.dll
