@@ -1,4 +1,5 @@
-﻿using AssetManager.Domain.Entities;
+﻿using AssetManager.Application.DTO;
+using AssetManager.Domain.Entities;
 using AssetManager.Domain.Repositories;
 using AssetManager.Domain.ValueObject;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,11 @@ public class PostgresAssetRepository : IAssetRepository
     public Task<Asset> GetAsync(AssetId id)
     {
         return _context.Assets.FirstOrDefaultAsync(x => x.Id == id)!;
+    }
+
+    public IEnumerable<Asset> GetAssets(IEnumerable<Guid> assets)
+    {
+        return _context.Assets.Where(i => assets.Contains(i.Id)).ToList();
     }
 
     public Task AddAsync(Asset asset)

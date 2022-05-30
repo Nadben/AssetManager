@@ -115,6 +115,27 @@ public class AssetManagerController : Controller
     }
 
     /// <summary>
+    /// This endpoint is used to remove an asset from an area
+    /// </summary>
+    /// <param name="command"></param>
+    /// <returns></returns>
+    public async Task<IActionResult> Put([FromBody] RemoveAssetFromAreaCommand command)
+    {
+        await _mediator.Send(command);
+        return Ok();
+    }
+    /// <summary>
+    /// This endpoint is used to remove an asset from an area
+    /// </summary>
+    /// <param name="command"></param>
+    /// <returns></returns>
+    public async Task<IActionResult> Put([FromBody] RemoveAssetsFromAreaCommand command)
+    {
+        await _mediator.Send(command);
+        return Ok();
+    }
+
+    /// <summary>
     /// This endpoint is used to delete an Area.
     /// </summary>
     /// <param name="DeleteAreaCommand"></param>
