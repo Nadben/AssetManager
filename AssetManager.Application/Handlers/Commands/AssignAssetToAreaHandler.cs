@@ -15,7 +15,7 @@ public class AssignAssetToAreaHandler : IRequestHandler<AssignAssetToAreaCommand
 
     public async Task<bool> Handle(AssignAssetToAreaCommand request, CancellationToken cancellationToken)
     {
-        var asset = await _unitOfWork.AssetRepository.GetAsync(request.AreaId);
+        var asset = await _unitOfWork.AssetRepository.GetAsync(request.AssetId);
         
         if(asset == null)
         {

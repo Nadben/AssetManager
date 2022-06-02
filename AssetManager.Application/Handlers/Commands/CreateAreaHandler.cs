@@ -35,27 +35,22 @@ public class CreateAreaHandler : IRequestHandler<CreateAreaCommand, Guid>
             return Guid.Empty;
         }
 
-        // create list of assets
         var assets = new List<Asset>();
-        foreach (var assetDto in request.AreaDto.Assets)
+        if (request.AreaDto.Assets.Any())
         {
-            var asset = _assetFactory.Create(assetDto.Name,
-                assetDto.IpId,
-                assetDto.Port,
-                assetDto.UserName,
-                assetDto.Password);
+            // create list of assets
+            assets.AddRange(request.AreaDto.Assets
+                .Select(assetDto => _assetFactory.Create(assetDto.Name, assetDto.IpId, assetDto.Port, assetDto.UserName, assetDto.Password)));
+        }
 
-            assets.Add(asset);
-        }
-        
-        // create list of owners
         var owners = new List<Owner>();
-        foreach (var ownerDto in request.AreaDto.Owners)
+        if (request.AreaDto.Owners.Any())
         {
-            var owner = _ownerFactory.Create(ownerDto.Name, ownerDto.Email, ownerDto.Role);
-            owners.Add(owner);
+            // create list of owners
+            owners.AddRange(request.AreaDto.Owners
+                .Select(ownerDto => _ownerFactory.Create(ownerDto.Name, ownerDto.Email, ownerDto.Role)));
         }
-        
+
         var newArea = _areaFactory.CreateWithDefaultValues(request.AreaDto.Name, assets, owners);
 
         await _unitOfWork.AreaRepository.AddAsync(newArea ?? throw new ArgumentNullException(nameof(area)));

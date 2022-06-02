@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace AssetManager.Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("AssetManager/v1")]
 public class AssetManagerController : Controller
 {
     private readonly ILogger<AssetManagerController> _logger;
@@ -24,9 +24,7 @@ public class AssetManagerController : Controller
     /// <summary>
     /// this endpoint is used to get the Area created with its assigned Asset.
     /// </summary>
-    /// <param name="GetAreaQuery"></param>
     /// <returns></returns>
-    // [Authorize(Roles = "SuperAdmin")]
     [Authorize]
     [HttpGet("Area/{AreaId:guid}")]
     [ProducesResponseType(typeof(AreaDto), 200)]
@@ -39,9 +37,7 @@ public class AssetManagerController : Controller
     /// <summary>
     /// This endpoint is used to get the Asset created.
     /// </summary>
-    /// <param name="GetAssetQuery"></param>
     /// <returns></returns>
-    // [Authorize(Roles = "SuperAdmin")]
     [HttpGet("Asset/{AssetId:guid}")]
     [ProducesResponseType(typeof(AssetDto), 200)]
     public async Task<ActionResult<AssetDto>> Get([FromRoute] GetAssetQuery query)
@@ -53,10 +49,8 @@ public class AssetManagerController : Controller
     /// <summary>
     /// this endpoint is used to create an Area.
     /// </summary>
-    /// <param name="CreateAreaCommand"></param>
     /// <returns></returns>
-    // [Authorize]
-    [HttpPost("Area")]
+    [HttpPost("Create/Area")]
     public async Task<IActionResult> Post([FromBody] CreateAreaCommand command)
     {
         var result = await _mediator.Send(command);
@@ -66,10 +60,8 @@ public class AssetManagerController : Controller
     /// <summary>
     /// This endpoint is used to create an Asset.
     /// </summary>
-    /// <param name="CreateAssetCommand"></param>
     /// <returns></returns>
-    // [Authorize]
-    [HttpPost("Asset")]
+    [HttpPost("Create/Asset")]
     public async Task<IActionResult> Post([FromBody] CreateAssetCommand command)
     {
         var result = await _mediator.Send(command);
@@ -79,10 +71,9 @@ public class AssetManagerController : Controller
     /// <summary>
     /// this endpoint is used to assign an Asset to an Area.
     /// </summary>
-    /// <param name="AssignAssetToAreaCommand"></param>
     /// <returns></returns>
     // [Authorize(Roles = "Admin, SuperAdmin")]
-    [HttpPost("{AreaId:guid}/Assets/{AssetId:guid}")]
+    [HttpPut("assign/Asset/{AssetId:guid}/area/{AreaId:guid}")]
     public async Task<IActionResult> Put([FromBody] AssignAssetToAreaCommand command)
     {
         await _mediator.Send(command);
@@ -92,10 +83,9 @@ public class AssetManagerController : Controller
     /// <summary>
     /// This endpoint is used to assign an owner to an Area.
     /// </summary>
-    /// <param name="AssignOwnerToAreaCommand"></param>
     /// <returns></returns>
     // [Authorize(Roles = "Admin, SuperAdmin")]
-    [HttpPost("{areaid:guid}/Area/{ownerid:guid}")]
+    [HttpPut("assign/area/{areaid:guid}/owner/{ownerid:guid}")]
     public async Task<IActionResult> Put([FromBody] AssignOwnerToAreaCommand command)
     {
         await _mediator.Send(command);
@@ -105,9 +95,8 @@ public class AssetManagerController : Controller
     /// <summary>
     /// This endpoint is used to Assign an owner to an Asset.
     /// </summary>
-    /// <param name="AssignOwnerToAssetCommand"></param>
     /// <returns></returns>
-    [HttpPost("{AreaId:guid}/Asset/{AssetId:guid}")]
+    [HttpPut("assign/asset/{AssetId:guid}/owner/{ownerid:guid}")]
     public async Task<IActionResult> Put([FromBody] AssignOwnerToAssetCommand command)
     {
         await _mediator.Send(command);
@@ -119,16 +108,19 @@ public class AssetManagerController : Controller
     /// </summary>
     /// <param name="command"></param>
     /// <returns></returns>
+    [HttpPut("remove/asset/{AssetId:guid}/area/{AreaId:guid}")]
     public async Task<IActionResult> Put([FromBody] RemoveAssetFromAreaCommand command)
     {
         await _mediator.Send(command);
         return Ok();
     }
+    
     /// <summary>
-    /// This endpoint is used to remove an asset from an area
+    /// This endpoint is used to remove multiple assets from an area
     /// </summary>
     /// <param name="command"></param>
     /// <returns></returns>
+    [HttpPut("remove/assets/area/{AreaId:guid}")]
     public async Task<IActionResult> Put([FromBody] RemoveAssetsFromAreaCommand command)
     {
         await _mediator.Send(command);
@@ -138,16 +130,19 @@ public class AssetManagerController : Controller
     /// <summary>
     /// This endpoint is used to delete an Area.
     /// </summary>
-    /// <param name="DeleteAreaCommand"></param>
     /// <returns></returns>
-    [HttpDelete("{AreaId}")]
+    [HttpDelete("delete/area/{AreaId}")]
     public async Task<IActionResult> Delete([FromBody] DeleteAreaCommand command)
     {
         await _mediator.Send(command);
         return Ok();
     }
-
-    [HttpDelete("{AssetId}")]
+    
+    /// <summary>
+    /// This endpoint is used to delete an Asset.
+    /// </summary>
+    /// <returns></returns>
+    [HttpDelete("delete/asset/{AssetId}")]
     public async Task<IActionResult> Delete([FromBody] DeleteAssetCommand command)
     {
         await _mediator.Send(command);
