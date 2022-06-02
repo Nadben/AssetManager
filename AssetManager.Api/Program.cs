@@ -18,7 +18,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddOryServiceProvider();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(configuration);
-
+builder.Services.AddSwaggerGen(c =>
+{
+    var filePath = Path.Combine(System.AppContext.BaseDirectory, "AssetManager.Api.xml");
+    c.IncludeXmlComments(filePath);
+});
+    
 var assemblies = AppDomain.CurrentDomain.GetAssemblies();
 var applicationAssembly = assemblies.First(assembly => assembly.GetName().Name == "AssetManager.Application");
 var apiAssembly = assemblies.First(assembly => assembly.GetName().Name == "AssetManager.Api");

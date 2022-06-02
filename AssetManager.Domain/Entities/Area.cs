@@ -40,6 +40,11 @@ namespace AssetManager.Domain.Entities
 
         public void AddAssets(IEnumerable<Asset> assets)
         {
+            if (!assets.Any())
+            {
+                return;
+            }
+            
             foreach (var asset in assets)
             {
                 AddAsset(asset);
@@ -82,6 +87,11 @@ namespace AssetManager.Domain.Entities
 
         public void AssignOwners(IEnumerable<Owner> owners)
         {
+            if (!owners.Any())
+            {
+                return;
+            }
+            
             foreach (var owner in owners)
             {
                 AssignOwner(owner);

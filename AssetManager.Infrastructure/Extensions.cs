@@ -22,6 +22,7 @@ public static class Extensions
         services.AddTransient<IAssetRepository, PostgresAssetRepository>();
         services.AddTransient<ICameraRepository, PostgresCameraRepository>();
         services.AddTransient<IRecorderRepository, PostgresRecorderRepository>();
+        services.AddTransient<IOwnerRepository, PostgresOwnerRepository>();
         
         return services;
     }
