@@ -1,4 +1,5 @@
-﻿using AssetManager.Domain.Repositories;
+﻿using AssetManager.Application.Authentication;
+using AssetManager.Domain.Repositories;
 using AssetManager.Infrastructure.Options;
 using AssetManager.Infrastructure.Repositories;
 using AssetManager.Shared.Options;
@@ -23,7 +24,9 @@ public static class Extensions
         services.AddTransient<ICameraRepository, PostgresCameraRepository>();
         services.AddTransient<IRecorderRepository, PostgresRecorderRepository>();
         services.AddTransient<IOwnerRepository, PostgresOwnerRepository>();
-        
+        services.AddTransient<IUserRepository, PostgresUserRepository>();
+        services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+
         return services;
     }
 }

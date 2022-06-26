@@ -3,7 +3,6 @@ using AssetManager.Application.DTO;
 using AssetManager.Application.Queries;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 
 namespace AssetManager.Api.Controllers;
 
@@ -25,7 +24,6 @@ public class AssetManagerController : Controller
     /// this endpoint is used to get the Area created with its assigned Asset.
     /// </summary>
     /// <returns></returns>
-    [Authorize]
     [HttpGet("Area/{AreaId:guid}")]
     [ProducesResponseType(typeof(AreaDto), 200)]
     public async Task<ActionResult<AreaDto>> Get([FromRoute] GetAreaQuery query)

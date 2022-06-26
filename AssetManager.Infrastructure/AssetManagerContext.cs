@@ -12,12 +12,10 @@ namespace AssetManager.Infrastructure
     {
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Area> Areas { get; set; }
-    
         public DbSet<Camera> Cameras { get; set; }
-
         public DbSet<Recorder> Recorders { get; set; }
-
-        public DbSet<Owner> Owners { get; set; }
+        public DbSet<Owner> Owners { get; set; }    
+        public DbSet<User> Users { get; set; }
 
         private readonly IConfiguration _configuration;
 
@@ -48,6 +46,7 @@ namespace AssetManager.Infrastructure
             modelBuilder.ApplyConfiguration<Area>(configuration);
             modelBuilder.ApplyConfiguration<Camera>(configuration);
             modelBuilder.ApplyConfiguration<Recorder>(configuration);
+            modelBuilder.ApplyConfiguration<User>(configuration);
         }
     }
 }

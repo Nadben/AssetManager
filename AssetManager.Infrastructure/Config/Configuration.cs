@@ -8,7 +8,8 @@ namespace AssetManager.Infrastructure.Config;
 internal sealed class Configuration : IEntityTypeConfiguration<Area>,
     IEntityTypeConfiguration<Asset>,
     IEntityTypeConfiguration<Camera>,
-    IEntityTypeConfiguration<Recorder>
+    IEntityTypeConfiguration<Recorder>,
+    IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<Area> builder)
     {
@@ -76,5 +77,31 @@ internal sealed class Configuration : IEntityTypeConfiguration<Area>,
         builder.HasBaseType<Asset>();
         builder.HasMany<Camera>();
         builder.ToTable("Recorders");
+    }
+
+    public void Configure(EntityTypeBuilder<User> builder)
+    {
+        builder.HasKey(i => i.Id);
+
+        builder
+            .Property(i => i.Id)
+            .HasConversion(i => i.Value, i => new UserId(i));
+
+        builder.Property(i => i.FirstName)
+            .HasColumnName("FirstName");
+
+        builder.Property(i => i.LastName)
+            .HasColumnName("LastName");
+
+        builder.Property(i => i.Username)
+            .HasColumnName("Username");
+
+        builder.Property(i => i.Password)
+            .HasColumnName("Password");
+
+        builder.Property(i => i.Role)
+            .HasColumnName("Role");
+
+        builder.ToTable("Users");
     }
 }

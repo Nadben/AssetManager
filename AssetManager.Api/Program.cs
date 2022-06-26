@@ -2,6 +2,9 @@ using AssetManager.Application;
 using AssetManager.Identity;
 using AssetManager.Infrastructure;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +32,20 @@ var applicationAssembly = assemblies.First(assembly => assembly.GetName().Name =
 var apiAssembly = assemblies.First(assembly => assembly.GetName().Name == "AssetManager.Api");
 
 builder.Services.AddMediatR(apiAssembly, applicationAssembly);
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(otpions =>
+    {
+        otpions.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = "http://localhost:5000",
+            ValidAudience = "http://localhost:5000",
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))
+        };
+    });
 
 var app = builder.Build();
 
@@ -42,6 +59,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllers();
 app.Run();

@@ -24,3 +24,9 @@ AssetManager.Domain/bin/
 AssetManager.Domain/obj/
 
 AssetManager.Identity/obj/
+
+.vs/
+
+AssetManager.Shared/obj/Debug/
+
+AssetManager.Shared/obj/

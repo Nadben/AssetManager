@@ -10,7 +10,8 @@ public class UnitOfWork: IUnitOfWork, IDisposable
     private readonly ICameraRepository _cameraRepository;
     private readonly IRecorderRepository _recorderRepository;
     private readonly IOwnerRepository _ownerRepository;
-    
+    private readonly IUserRepository _userRepository;
+
     private bool _disposed;
     
     public IAreaRepository AreaRepository => _areaRepository;
@@ -18,13 +19,15 @@ public class UnitOfWork: IUnitOfWork, IDisposable
     public ICameraRepository CameraRepository => _cameraRepository;
     public IRecorderRepository RecorderRepository => _recorderRepository;
     public IOwnerRepository OwnerRepository => _ownerRepository;
+    public IUserRepository UserRepository => _userRepository;
 
     public UnitOfWork(AssetManagerContext context,
         IAreaRepository areaRepository,
         IAssetRepository assetRepository,
-        ICameraRepository cameraRepository, 
-        IRecorderRepository recorderRepository, 
-        IOwnerRepository ownerRepository)
+        ICameraRepository cameraRepository,
+        IRecorderRepository recorderRepository,
+        IOwnerRepository ownerRepository,
+        IUserRepository userRepository)
     {
         _context = context;
         _areaRepository = areaRepository;
@@ -32,8 +35,9 @@ public class UnitOfWork: IUnitOfWork, IDisposable
         _cameraRepository = cameraRepository;
         _recorderRepository = recorderRepository;
         _ownerRepository = ownerRepository;
+        _userRepository = userRepository;
     }
-    
+
     public void Commit()
     {
         _context.SaveChanges();

@@ -2,7 +2,7 @@
 
 namespace AssetManager.Domain.ValueObject
 {
-    public record struct AreaId
+    public record AreaId
     {
         public Guid Value { get;  }
 
