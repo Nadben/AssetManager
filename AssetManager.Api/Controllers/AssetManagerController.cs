@@ -8,13 +8,13 @@ namespace AssetManager.Api.Controllers;
 
 [ApiController]
 [Route("AssetManager/v1")]
-public class AssetManagerController : Controller
+public class AssetManagerController : ApiControllerBase
 {
     private readonly ILogger<AssetManagerController> _logger;
     private readonly IMediator _mediator;
 
     public AssetManagerController(ILogger<AssetManagerController> logger,
-        IMediator mediator)
+        IMediator mediator) : base(mediator)
     {
         _logger = logger;
         _mediator = mediator;
@@ -26,10 +26,9 @@ public class AssetManagerController : Controller
     /// <returns></returns>
     [HttpGet("Area/{AreaId:guid}")]
     [ProducesResponseType(typeof(AreaDto), 200)]
-    public async Task<ActionResult<AreaDto>> Get([FromRoute] GetAreaQuery query)
+    public Task<ActionResult<AreaDto>> Get([FromRoute] GetAreaQuery query)
     {
-        var result = await _mediator.Send(query);
-        return Ok(result);
+        return Send<GetAreaQuery, AreaDto>(query);
     }
 
     /// <summary>
@@ -38,21 +37,19 @@ public class AssetManagerController : Controller
     /// <returns></returns>
     [HttpGet("Asset/{AssetId:guid}")]
     [ProducesResponseType(typeof(AssetDto), 200)]
-    public async Task<ActionResult<AssetDto>> Get([FromRoute] GetAssetQuery query)
+    public Task<ActionResult<AssetDto>> Get([FromRoute] GetAssetQuery query)
     {
-        var result = await _mediator.Send(query);
-        return Ok(result);
+        return Send<GetAssetQuery, AssetDto>(query);
     }
-
+    
     /// <summary>
     /// this endpoint is used to create an Area.
     /// </summary>
     /// <returns></returns>
     [HttpPost("Create/Area")]
-    public async Task<IActionResult> Post([FromBody] CreateAreaCommand command)
+    public Task<ActionResult<ApiResponse>> Post([FromBody] CreateAreaCommand command)
     {
-        var result = await _mediator.Send(command);
-        return CreatedAtAction(nameof(Get), new { id = result }, command);
+        return Send<CreateAreaCommand, ApiResponse>(command);
     }
 
     /// <summary>

@@ -2,7 +2,7 @@
 
 namespace AssetManager.Application.DTO;
 
-public class AssetDto
+public class AssetDto : ApiResponse
 {
     public AssetId Id { get; }
     public AssetName Name { get; }

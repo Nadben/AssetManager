@@ -2,7 +2,7 @@
 
 namespace AssetManager.Application.DTO;
 
-public class OwnerDto
+public class OwnerDto : ApiResponse
 {
     public string Name { get; }
     public string Email { get; }

@@ -3,7 +3,7 @@ using AssetManager.Domain.ValueObject;
 
 namespace AssetManager.Application.DTO;
 
-public class AreaDto
+public class AreaDto : ApiResponse
 {
     public AreaId Id { get; set; }
     public AreaName Name { get; set; }

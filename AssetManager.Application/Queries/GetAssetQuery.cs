@@ -3,4 +3,4 @@ using MediatR;
 
 namespace AssetManager.Application.Queries;
 
-public record GetAssetQuery(Guid AssetId) : IRequest<AssetDto>;
+public record GetAssetQuery(Guid AssetId) : IRequest<AssetDto>, IRequest;

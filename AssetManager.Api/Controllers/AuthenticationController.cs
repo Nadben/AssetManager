@@ -17,6 +17,11 @@ public class AuthenticationController : ControllerBase
         _authenticationService = authenticationService;
     }
 
+    /// <summary>
+    /// Register in the AssetManager
+    /// </summary>
+    /// <param name="request"></param>
+    /// <returns></returns>
     [Route("register")]
     [HttpPost]
     public IActionResult Register(RegisterRequest request)
@@ -29,7 +34,11 @@ public class AuthenticationController : ControllerBase
 
         return Ok(authenticationResult);
     }
-
+    /// <summary>
+    /// Login
+    /// </summary>
+    /// <param name="loginRequest"></param>
+    /// <returns></returns>
     [Route("login")]
     [HttpPost]
     public IActionResult Get(LoginRequest loginRequest)
