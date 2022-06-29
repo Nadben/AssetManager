@@ -7,7 +7,7 @@ namespace AssetManager.Api.Controllers
     public abstract class ApiControllerBase :  Controller
     {
         private readonly IMediator _mediator;
-
+        
         public ApiControllerBase(IMediator mediator)
         {
             _mediator = mediator;

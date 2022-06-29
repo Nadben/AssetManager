@@ -57,10 +57,9 @@ public class AssetManagerController : ApiControllerBase
     /// </summary>
     /// <returns></returns>
     [HttpPost("Create/Asset")]
-    public async Task<IActionResult> Post([FromBody] CreateAssetCommand command)
+    public async Task<ActionResult<ApiResponse>> Post([FromBody] CreateAssetCommand command)
     {
-        var result = await _mediator.Send(command);
-        return CreatedAtAction(nameof(Get), new { id = result }, command);
+        return await Send<CreateAssetCommand, ApiResponse>(command);
     }
 
     /// <summary>
