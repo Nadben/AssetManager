@@ -36,7 +36,7 @@ public class AssetManagerController : ApiControllerBase
     /// </summary>
     /// <returns></returns>
     [HttpGet("Asset/{AssetId:guid}")]
-    [ProducesResponseType(typeof(AssetDto), 200)]
+    [ProducesResponseType(typeof(AssetDto), statusCode: 200)]
     public Task<ActionResult<AssetDto>> Get([FromRoute] GetAssetQuery query)
     {
         return Send<GetAssetQuery, AssetDto>(query);

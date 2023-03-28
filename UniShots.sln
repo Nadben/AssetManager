@@ -1,22 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetManager.Api", "AssetManager.Api\AssetManager.Api.csproj", "{7C4D26AC-DC90-449D-B296-FF90C582019E}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssetManager.Api", "AssetManager.Api\AssetManager.Api.csproj", "{7C4D26AC-DC90-449D-B296-FF90C582019E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetManager.Domain", "AssetManager.Domain\AssetManager.Domain.csproj", "{9A0434BA-5F04-4984-8FB6-7216001E86D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssetManager.Domain", "AssetManager.Domain\AssetManager.Domain.csproj", "{9A0434BA-5F04-4984-8FB6-7216001E86D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetManager.Infrastructure", "AssetManager.Infrastructure\AssetManager.Infrastructure.csproj", "{47733A99-DEB4-480B-A71E-4E8CC46958ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssetManager.Infrastructure", "AssetManager.Infrastructure\AssetManager.Infrastructure.csproj", "{47733A99-DEB4-480B-A71E-4E8CC46958ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetManager.Application", "AssetManager.Application\AssetManager.Application.csproj", "{0410703F-7A87-4064-BA71-FB2DE4419957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssetManager.Application", "AssetManager.Application\AssetManager.Application.csproj", "{0410703F-7A87-4064-BA71-FB2DE4419957}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AssetManager.Shared", "AssetManager.Shared", "{29D1585B-0E19-4FD5-B000-89820C34B2D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetManager.Shared", "AssetManager.Shared\AssetManager.Shared.csproj", "{D58B7E8A-AC85-4D3F-AF5C-4CE21221F8FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssetManager.Shared", "AssetManager.Shared\AssetManager.Shared.csproj", "{D58B7E8A-AC85-4D3F-AF5C-4CE21221F8FD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{8A6B2A06-49E9-4708-9B28-E2C4BB74FF50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetManager.Identity", "AssetManager.Identity\AssetManager.Identity.csproj", "{AEAA477F-308B-4F4E-843D-13D2AADF7A83}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{9061F9C8-BBD7-4EFA-966D-71CC6426D40D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssetManager.Identity", "AssetManager.Identity\AssetManager.Identity.csproj", "{AEAA477F-308B-4F4E-843D-13D2AADF7A83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,14 +49,15 @@ Global
 		{AEAA477F-308B-4F4E-843D-13D2AADF7A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEAA477F-308B-4F4E-843D-13D2AADF7A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEAA477F-308B-4F4E-843D-13D2AADF7A83}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9061F9C8-BBD7-4EFA-966D-71CC6426D40D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9061F9C8-BBD7-4EFA-966D-71CC6426D40D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9061F9C8-BBD7-4EFA-966D-71CC6426D40D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9061F9C8-BBD7-4EFA-966D-71CC6426D40D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D58B7E8A-AC85-4D3F-AF5C-4CE21221F8FD} = {29D1585B-0E19-4FD5-B000-89820C34B2D1}
 		{AEAA477F-308B-4F4E-843D-13D2AADF7A83} = {8A6B2A06-49E9-4708-9B28-E2C4BB74FF50}
-		{9061F9C8-BBD7-4EFA-966D-71CC6426D40D} = {8A6B2A06-49E9-4708-9B28-E2C4BB74FF50}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78FD406A-E850-41AA-B801-1DB238E8A0B0}
 	EndGlobalSection
 EndGlobal

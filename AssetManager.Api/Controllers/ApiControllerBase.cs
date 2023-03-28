@@ -14,7 +14,6 @@ namespace AssetManager.Api.Controllers
         }
 
         public async virtual Task<ActionResult<TApiResult>> Send<TApiParameter, TApiResult>(TApiParameter apiParameter)
-            where TApiParameter : IRequest
             where TApiResult : ApiResponse
         {
             try

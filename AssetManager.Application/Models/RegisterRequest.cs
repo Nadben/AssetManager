@@ -13,5 +13,6 @@ public class RegisterRequest
     public string FirstName { get; set; }
     [Required]
     public string LastName { get; set; }
+    [Required]
     public RoleEnum Role { get; set; }
 }

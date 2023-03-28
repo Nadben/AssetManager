@@ -3,4 +3,4 @@ using MediatR;
 
 namespace AssetManager.Application.Commands;
 
-public record CreateAreaCommand(AreaDto AreaDto) : IRequest<Guid>, IRequest;
+public record CreateAreaCommand(AreaDto AreaDto) : IRequest<Guid>;
