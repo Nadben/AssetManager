@@ -30,3 +30,7 @@ AssetManager.Identity/obj/
 AssetManager.Shared/obj/Debug/
 
 AssetManager.Shared/obj/
+
+AssetManager.Identity/bin/
+
+AssetManager.Shared/bin/
