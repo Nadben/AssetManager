@@ -19,9 +19,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AssetManager.Application\AssetManager.Application.csproj" />
-      <ProjectReference Include="..\AssetManager.Identity\AssetManager.Identity.csproj" />
-      <ProjectReference Include="..\AssetManager.Infrastructure\AssetManager.Infrastructure.csproj" />
+      <ProjectReference Include="..\AssetManager.Application\UniShots.AssetManager.Application.csproj" />
+      <ProjectReference Include="..\AssetManager.Identity\UniShots.AssetManager.Identity.csproj" />
+      <ProjectReference Include="..\AssetManager.Infrastructure\UniShots.AssetManager.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

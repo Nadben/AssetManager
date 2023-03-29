@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AssetManager.Shared\AssetManager.Shared.csproj" />
+      <ProjectReference Include="..\AssetManager.Shared\UniShots.AssetManager.Shared.csproj" />
     </ItemGroup>
 
 </Project>

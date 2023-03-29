@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AssetManager.Domain\AssetManager.Domain.csproj" />
+      <ProjectReference Include="..\AssetManager.Domain\UniShots.AssetManager.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AssetManager.Application\AssetManager.Application.csproj" />
-      <ProjectReference Include="..\AssetManager.Shared\AssetManager.Shared.csproj" />
+      <ProjectReference Include="..\AssetManager.Application\UniShots.AssetManager.Application.csproj" />
+      <ProjectReference Include="..\AssetManager.Shared\UniShots.AssetManager.Shared.csproj" />
     </ItemGroup>
 
     <ItemGroup>
